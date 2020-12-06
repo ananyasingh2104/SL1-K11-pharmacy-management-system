@@ -23,7 +23,7 @@ app.set('views', path.join(__dirname, 'views'))
 const con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Avail08#09',
+    password: '',
     database: 'pharmacy_management_system'
 });
 
