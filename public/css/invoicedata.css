@@ -1,0 +1,262 @@
+/* CODE COMMON FOR ALL PAGES STARTS HERE*************************/
+
+body {
+  margin:0;
+  font-family: 'Rubik', sans-serif;
+  background-color: #F9F9F9;
+}
+
+/*CSS for Sidenav*/
+
+.sidenav {
+  height: 100vh;
+  width: 15vw;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  position: fixed;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 4vh;
+}
+
+.sidenav a {
+  padding: 2vh 2vw 2vh 2vw;
+  text-decoration: none;
+  font-size: 16px;
+  color: #5F5F5F;
+  display: block;
+  font-family: 'Karla', sans-serif;
+  border-left: 5px solid transparent;
+}
+
+.sidenav a:hover {
+  color: #BDC3C7;
+  border-left-color: #00D6CA;
+}
+
+.pms {
+  color: red;
+  text-align: center;
+  padding-top: 0.5vh;
+  padding-bottom: 10vh;
+  font-size: 19px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+.w3-bar-block {
+  margin-left: 2vw;
+}
+
+.dash {
+  display: inline-block;
+  padding-left: 1vw;
+  padding-top: 1vh;
+  color: white;
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.lbtn {
+  background: none;
+  padding: 1vh 1vw 1vh 1vw;
+  font-size: 2.7vh;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.lbtn:focus{
+  outline: none;
+}
+
+.lbtn:hover{
+  color: black;
+}
+
+.logout {
+  position: fixed;
+  display: inline-block;
+  padding-left: 68.375vw;
+}
+
+/*CSS for sidenav ENDS*/
+
+/*Coloured Region*/
+
+.top {
+  padding: 2vh 0vw 0vh 2vw;
+}
+
+.main {
+  margin-left: 15vw;
+  height: 32vh;
+  background-image: linear-gradient( to bottom right, #0C8C9F 30%, #00D6CA 100%);
+}
+
+/*Coloured Region Ends*/
+
+/*Footer Starts*/
+
+.copyright {
+  margin-top: 12vh;
+  margin-left: 18vw;
+  font-size: 1.0rem;
+  color: #5F5F5F;
+  position: fixed;
+}
+
+.t5 {
+  position: fixed;
+  margin-left:59.5vw;
+  font-size: 16px;
+  display: inline;
+  color: #5F5F5F;
+}
+
+/*Footer ENDS*/
+
+.middle {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 8vh;
+}
+
+  ::placeholder{
+        font-size: 2.65vh;
+  }
+
+   .end{
+      height: 50vh;
+      background-color: #F9F9F9;
+  }
+    
+
+  .table1{
+        border: 0.25px solid black;
+        border-collapse: collapse;
+        margin-top: 3vh;
+        margin-left: 2vw;
+        height: 6vh;
+        width:75.85vw;
+      }
+     
+      .table2{
+        margin-top: 5vh !important;
+      }
+      .t1{
+        font-family: Arial, Helvetica, sans-serif;
+        border: 0.25px solid black;
+        height: 6vh;
+        width:75.85vw;
+        font-size: 1.85vh;
+        padding-left: 1vw;
+        text-align:left;
+        font-weight:normal;
+    }
+    
+    .table1 th{
+        font-weight:bold;
+    }
+
+    #table2 {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 75.25vw;
+      margin-left: 2.25vw;
+      margin-top: 5vh;
+      margin-bottom: 2vh;
+    }
+    
+    #table2 td, #table2 th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #table2 tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #table2 tr:hover {background-color: #ddd;}
+    
+    #table2 th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color:#0C8C9F;
+      opacity:0.68;
+      color: white;
+    }
+
+    .scrollable{
+      overflow:auto;
+    }
+
+    .grand{
+      font-size: 2vh ;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .pbutton{
+      margin-left: 38vw;
+      margin-bottom: 2.5vh;
+      margin-top: 0.25vh;
+    }
+
+  .bill{
+    background-color: white;
+    position: absolute;
+    width: 80vw;
+    height: 72.5vh;
+    margin-left: 17.5vw;
+    margin-top: -7vw;
+    border-radius: 7.5px;
+    border-color: 3px solid black;
+  }
+.isearch{
+    font-size: 3.5vh;
+    display: flex;
+    justify-content: center;
+}
+
+  .search{
+     height:6.5vh;
+     width:35vw;
+     position: absolute;
+     margin-left: 25vw;
+     margin-top: 6vh;
+     border-radius: 30px;
+     border: white;
+     outline:none;
+    
+}
+
+.i1{
+    position: absolute;
+    margin-left: 26vw;
+    margin-top: 7.15vh;
+    z-index: 1;
+    border: none;
+}
+
+.i2{
+   display: inline-block;
+   font-size: 2.5vh;
+   margin-left: 2vw;
+   margin-top: 2vh;
+   font-weight: lighter;
+}
+
+input{
+    padding-left: 3.35vw;
+    font-size: 2.65vh;
+}
+
+table {
+  counter-reset: section;
+}
+
+.count:before {
+  counter-increment: section;
+  content: counter(section);
+}

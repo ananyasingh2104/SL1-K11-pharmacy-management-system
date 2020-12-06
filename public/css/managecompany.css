@@ -1,0 +1,206 @@
+/* CODE COMMON FOR ALL PAGES STARTS HERE*************************/
+
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: #F9F9F9;
+}
+
+/*CSS for Sidenav*/
+
+.sidenav {
+    height: 100vh;
+    width: 15vw;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    position: fixed;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 4vh;
+}
+
+.sidenav a {
+    padding: 2vh 2vw 2vh 2vw;
+    text-decoration: none;
+    font-size: 16px;
+    color: #5F5F5F;
+    display: block;
+    font-family: 'Karla', sans-serif;
+    border-left: 5px solid transparent;
+}
+
+.sidenav a:hover {
+    color: #BDC3C7;
+    border-left-color: #00D6CA;
+}
+
+.pms {
+    color: red;
+    text-align: center;
+    padding-top: 0.5vh;
+    padding-bottom: 10vh;
+    font-size: 19px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.w3-bar-block {
+    margin-left: 2vw;
+}
+
+.dash {
+    display: inline-block;
+    padding-left: 1vw;
+    padding-top: 1vh;
+    color: white;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.lbtn {
+    background: none;
+    padding: 1vh 1vw 1vh 1vw;
+    font-size: 2.7vh;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .lbtn:focus{
+    outline: none;
+  }
+  
+  .lbtn:hover{
+    color: black;
+  }
+  
+  .logout {
+    position: fixed;
+    display: inline-block;
+    padding-left: 63.75vw;
+  }
+/*CSS for sidenav ENDS*/
+
+/*Coloured Region*/
+
+.top {
+    padding: 2vh 0vw 0vh 2vw;
+}
+
+.main {
+    margin-left: 15vw;
+    height: 30vh;
+    background-image: linear-gradient( to bottom right, #0C8C9F 30%, #00D6CA 100%);
+}
+
+.add{
+    height: 70vh;
+    width: 80vw;
+    background-color: white;
+    margin-top: -13vh;
+    margin-left: 17.5vw;
+    border-radius: 7.5px;
+    overflow: auto;
+    padding-bottom: 3.25vh;
+}
+
+.heading1{
+    padding-top: 1.625vh;
+    padding-left: 1.5vw;
+    font-size:2.1vh;
+    color:#4B586B;
+    height: 7vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.heading2{
+    padding-top: 0.4vh;
+    padding-bottom:1vh;
+    padding-left: 1.5vw;
+    font-size: 1.6vh;
+    color: #999898 ;
+}
+
+.ctable{
+    padding-top:3vh;
+    padding-left:2vw;
+}
+
+#companies {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 76vw;
+  }
+  
+  #companies td, #companies th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #companies tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #companies tr:hover {background-color: #ddd;}
+  
+  #companies th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#0C8C9F;
+    opacity:0.76;
+    color: white;
+  }
+
+.ebutton{
+    color:white;
+    padding: 0.125vh 0.5vw 0.125vh 0.5vw;
+    outline: none;
+    font-size:2.1vh;
+    border-radius: 4px;
+    border-color: transparent;
+    background-color: #0C8C9F;
+    opacity:0.65;
+    font-family: 'Open sans-serif', serif;
+    font-weight:lighter;
+}
+.ebutton:hover{
+    opacity:1;
+    cursor: pointer;
+}
+.ebutton:focus{
+    outline: none;
+}
+
+/*Coloured Region Ends*/
+
+/*Footer Starts*/
+
+.copyright {
+    margin-top: 3vh;
+    margin-left: 18vw;
+    font-size: 1.0rem;
+    color: #5F5F5F;
+}
+
+.t5 {
+    position: fixed;
+    margin-left: 59.5vw;
+    font-size: 16px;
+    display: inline;
+    color: #5F5F5F;
+}
+
+table {
+    counter-reset: section;
+  }
+  
+  .count:before {
+    counter-increment: section;
+    content: counter(section);
+  }
+
+/*Footer ENDS*/
+
+/*CSS for Sale Starts*/
+
+
+/*COMMON CODE ENDS HERE******************************************/

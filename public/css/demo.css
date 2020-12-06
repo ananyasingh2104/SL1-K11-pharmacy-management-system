@@ -1,0 +1,144 @@
+/* CODE COMMON FOR ALL PAGES STARTS HERE*************************/
+
+body {
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  background-color: #F9F9F9;
+}
+
+/*CSS for Sidenav*/
+
+.sidenav {
+  height: 100vh;
+  width: 15vw;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  position: fixed;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 4vh;
+}
+
+.sidenav a {
+  padding: 2vh 2vw 2vh 2vw;
+  text-decoration: none;
+  font-size: 16px;
+  color: #5F5F5F;
+  display: block;
+  font-family: 'Karla', sans-serif;
+  border-left: 5px solid transparent;
+}
+
+.sidenav a:hover {
+  color: #BDC3C7;
+  border-left-color: #00D6CA;
+}
+
+.pms {
+  color: red;
+  text-align: center;
+  padding-top: 0.5vh;
+  padding-bottom: 10vh;
+  font-size: 19px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.w3-bar-block {
+  margin-left: 2vw;
+}
+
+.dash {
+  display: inline-block;
+  padding-left: 1vw;
+  padding-top: 1vh;
+  color: white;
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.dropbtn {
+  background: none;
+  padding: 1vh 1vw 1vh 1vw;
+  font-size: 2.7vh;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.dropdown {
+  position: fixed;
+  display: inline-block;
+  padding-left: 64vw;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 9.75vw;
+  margin-left: 1vw;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 1vh 0vw 1vh 2.5vw;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*CSS for sidenav ENDS*/
+
+/*Coloured Region*/
+
+.top {
+  padding: 2vh 0vw 0vh 2vw;
+}
+
+.main {
+  margin-left: 15vw;
+  height: 50vh;
+  background-image: linear-gradient( to bottom right, #0C8C9F 30%, #00D6CA 100%);
+}
+
+/*Coloured Region Ends*/
+
+/*Footer Starts*/
+
+.copyright {
+  margin-top: 15vh;
+  margin-left: 1.5vw;
+  font-size: 1.0rem;
+  color: #5F5F5F;
+}
+
+.t5 {
+  position: fixed;
+  margin-left: 57.75vw;
+  font-size: 16px;
+  display: inline;
+  color: #5F5F5F;
+}
+
+/*Footer ENDS*/
+
+/*CSS for Sale Starts*/
+
+.middle {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 8vh;
+}
+
+
+/*COMMON CODE ENDS HERE******************************************/

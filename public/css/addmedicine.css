@@ -1,0 +1,266 @@
+/* CODE COMMON FOR ALL PAGES STARTS HERE*************************/
+
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: #F9F9F9;
+}
+
+/*CSS for Sidenav*/
+
+.sidenav {
+    height: 100vh;
+    width: 15vw;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    position: fixed;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 4vh;
+}
+
+.sidenav a {
+    padding: 2vh 2vw 2vh 2vw;
+    text-decoration: none;
+    font-size: 16px;
+    color: #5F5F5F;
+    display: block;
+    font-family: 'Karla', sans-serif;
+    border-left: 5px solid transparent;
+}
+
+.sidenav a:hover {
+    color: #BDC3C7;
+    border-left-color: #00D6CA;
+}
+
+.pms {
+    color: red;
+    text-align: center;
+    padding-top: 0.5vh;
+    padding-bottom: 10vh;
+    font-size: 19px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.w3-bar-block {
+    margin-left: 2vw;
+}
+
+.dash {
+    display: inline-block;
+    padding-left: 1vw;
+    padding-top: 1vh;
+    color: white;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.lbtn {
+    background: none;
+    padding: 1vh 1vw 1vh 1vw;
+    font-size: 2.7vh;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .lbtn:focus{
+    outline: none;
+  }
+  
+  .lbtn:hover{
+    color: black;
+  }
+  
+  .logout {
+    position: fixed;
+    display: inline-block;
+    padding-left: 65.375vw;
+  }
+
+/*CSS for sidenav ENDS*/
+
+/*Coloured Region*/
+
+.top {
+    padding: 2vh 0vw 0vh 2vw;
+}
+
+.main {
+    margin-left: 15vw;
+    height: 30vh;
+    background-image: linear-gradient( to bottom right, #0C8C9F 30%, #00D6CA 100%);
+}
+
+.add {
+    height: 66vh;
+    width: 80vw;
+    background-color: white;
+    margin-top: -13vh;
+    margin-left: 17.5vw;
+    border-radius: 7.5px;
+}
+
+.heading1 {
+    padding-top: 1.625vh;
+    padding-left: 1.5vw;
+    padding-bottom: 1vh;
+    font-size: 2.1vh;
+    color: #4B586B;
+    height: 7vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.heading2 {
+    padding-top: 3.5vh;
+    padding-left: 1.5vw;
+    font-size: 1.6vh;
+    color: #999898;
+}
+
+.cform {
+    height: 63vh;
+    background-color: #F1F1F1;
+    border-bottom-right-radius: 7.5px;
+    border-bottom-left-radius: 7.5px;
+}
+
+.details {
+    padding-top: 3vh;
+    padding-left: 1.5vw;
+}
+
+label {
+    display: block;
+    font-size: 1.85vh;
+    color: #7E8CA1;
+}
+
+.form-control{
+    background-color: transparent;
+    outline:none;
+    border-color: transparent;
+    display: inline-block;
+    position: relative;
+    padding-left:0vw;
+}
+
+.form-control input{
+    width: 76.75vw;
+    height: 4.5vh;
+    border-radius: 7.5px;
+    padding-left: 0.5vw;
+    outline: none;
+    border-color: transparent;
+    box-shadow: 5px 5px 10px #BDC3C7;
+    margin-top: 1vh;
+    color: #667176;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 1.8vh;
+}
+
+.form-control span{
+    position:absolute;
+    right:2vw;
+    top:6vh;
+    font-size:3.0vh;
+    visibility: hidden;
+}
+.form-control i{
+    position:absolute;
+    right:2vw;
+    top:6vh;
+    font-size:3.0vh;
+    visibility: hidden;
+}
+
+.form-control.success span
+{
+	color: #2ecc71;
+	visibility: visible;
+}
+.form-control.error i
+{
+	color: #e74c3c;
+	visibility: visible;
+}
+
+.custom-select {
+    width: 76.75vw;
+    height: 4.5vh;
+    border-radius: 7.5px;
+    padding-left: 0vw;
+    outline: none;
+    border-color: transparent;
+    margin-top: 1vh;
+    color: #667176;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 1.8vh;
+}
+
+select {
+    width: 76.75vw;
+    height: 4.5vh;
+    border-radius: 7.5px;
+    padding-left: 0.3vw;
+    outline: none;
+    border-color: transparent;
+    box-shadow: 5px 5px 10px #BDC3C7;
+    margin-top: -0.7vh;
+    color: #667176;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 1.8vh;
+    background-color: white;
+}
+
+.space {
+    padding-top: 1.5vh;
+}
+
+.required {
+    color: red !important;
+    display: inline-block;
+}
+
+.abutton {
+    margin-top: 4vh;
+    margin-left: 35.75vw;
+    padding: 0.75vh 1vw 0.75vh 1vw;
+    border-radius: 5px;
+    background-color: #0C8C9F;
+    color: white;
+    outline: none;
+    opacity: 0.9;
+    border-color: #0C8C9F;
+}
+
+.abutton:focus {
+    outline: none;
+}
+
+/*Coloured Region Ends*/
+
+/*Footer Starts*/
+
+.copyright {
+    margin-top: 6.5vh;
+    margin-left: 18vw;
+    font-size: 1.0rem;
+    color: #5F5F5F;
+}
+
+.t5 {
+    position: fixed;
+    margin-left: 59.5vw;
+    font-size: 16px;
+    display: inline;
+    color: #5F5F5F;
+}
+
+/*Footer ENDS*/
+
+/*CSS for Sale Starts*/
+
+/*COMMON CODE ENDS HERE******************************************/

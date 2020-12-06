@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/cartsuccess.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/cartsuccess.js"></script>
+
+</head>
+
+<body>
+
+  <div class="sidenav">
+    <h1 class="pms"><i class="fa fa-plus w3-xlarge"></i> PMS</h1>
+    <a class="navlink1" href="http://localhost:3000/"><i class="fa fa-dashboard w3-xlarge"
+        style="color:black;"></i>&nbsp Dashboard</a>
+    <div class="w3-dropdown-hover">
+      <a class="navlink2"><i class="fa fa-plus-square w3-xlarge" style="color:#E43A3A;"></i>&nbsp Medicine</a>
+      <div class="w3-dropdown-content w3-bar-block">
+        <a href="http://localhost:3000/add/medicine" class="w3-bar-item w3-button">Add medicine</a>
+        <a href="http://localhost:3000/manage/medicine" class="w3-bar-item w3-button">Manage medicines</a>
+      </div>
+    </div>
+    <div class="w3-dropdown-hover">
+      <a class="navlink7"><i class="fa fa-handshake-o w3-xlarge" style="color:#FF6D0E;"></i>&nbsp Company</a>
+      <div class="w3-dropdown-content w3-bar-block">
+        <a href="http://localhost:3000/add/company" class="w3-bar-item w3-button">Add company</a>
+        <a href="http://localhost:3000/manage/company" class="w3-bar-item w3-button">Manage company</a>
+      </div>
+    </div>
+
+    <a class="navlink3" href="http://localhost:3000/customers"><i class="fa fa-users w3-xlarge"
+        style="color:#3AB2E4;"></i>&nbsp Customers</a>
+
+    <a class="navlink4" href="http://localhost:3000/cart"><i class="fa fa-shopping-cart w3-xlarge"
+        style="color:black;"></i>&nbsp Cart</a>
+    <a class="navlink5" href="http://localhost:3000/salesreport/period"><i class="fa fa-bar-chart w3-xlarge"
+        style="color:#239B56;"></i>&nbsp Sales Report</a>
+    <a class="navlink6" href="http://localhost:3000/invoice/search"><i class="fa fa-search w3-xlarge"
+        style="color:#1B18AD;"></i>&nbsp Invoice Search</a>
+  </div>
+
+  <div class="main">
+    <div class="top">
+      <h2 class="dash">CART</h2>
+      <div class="logout">
+        <button class="lbtn" onclick="return logout();"><i class="fa fa-sign-out"></i>Logout</button>
+      </div>
+    </div>
+
+    <div class="middle">
+      <div class="heading1">
+        SEARCH CUSTOMER
+      </div>
+
+      <div class="sbar">
+        <button class="i1" onclick="return searchCustomer('<%=result.length%>');">
+          <div class="fa fa-search w3-xlarge"></div>
+        </button>
+        <input class="msearch" type="text" id="msearch" placeholder="Enter contact number"
+          onblur="return isLen(10,document.getElementById('msearch'),'msearch')"
+          onkeypress="return isCont(event,'msearch')" maxlength="10">
+        <i class="fa fa-times wrong"></i>
+      </div>
+
+      <div class="error1">
+        Results for "<%=results[0].cus_contact%>"
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+  <div class="end">
+    <div class="customer">
+      <div class="cdetails">
+        <form action="">
+          <div class="name">
+            <label for="cname">Customer name:</label>
+            <input class="w" type="text" name="cname" id="cname" value="<%=results[0].cus_name%>">
+          </div>
+          <div class="contact space">
+            <label for="ccontact">Customer contact:</label>
+            <input class="w" type="text" name="ccontact" id="ccontact" value="<%=results[0].cus_contact%>">
+          </div>
+          <div class="email space">
+            <label for="cemail">Customer email:</label>
+            <input class="w" type="text" name="cemail" id="cemail" value="<%=results[0].cus_email%>">
+          </div>
+          <div class="address space">
+            <label for="caddress">Customer address:</label>
+            <input class="w" type="text" name="caddress" id="caddress" value="<%=results[0].cus_address%>">
+          </div>
+          <div class="gender space">
+            <label for="cgender">Customer gender:</label>
+            <input class="w" type="text" name="cgender" id="cgender" value="<%=results[0].cus_gender%>">
+          </div>
+
+          <div class="membership space">
+            <label for="membership">Membership points:</label>
+            <input class="w" type="text" name="mpoints" id="mpoints" value="<%=results[0].cus_membership_points%>">
+          </div>
+
+          <div class="prescribed space">
+            <label for="prescribedby">Prescribed by:</label>
+            <input class="w" type="text" name="prescribedby" id="prescribedby" autocomplete="OFF"
+              onblur="return isPrescribe(document.getElementById('prescribedby').value)">
+            <span class="fa fa-check"></span>
+            <i class="fa fa-times wrong"></i>
+          </div>
+
+          <div class="payment space" onclick="isOneChecked()">
+            <label for="modeofpayment">Mode of payment:</label>
+            <div class="modeofpayment">
+              <label for="cash">Cash:</label>
+              <input type="radio" name="mop" id="cash" value="cash">
+              <label for="card">Card:</label>
+              <input type="radio" name="mop" id="card" value="card">
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="mdetails">
+      <div class="table1">
+        <table id="medicines">
+          <% if(result.length>0) { %>
+          <tr>
+            <th>S.No</th>
+            <th>Medicine company</th>
+            <th>Medicine name</th>
+            <th>Buying quantity</th>
+            <th>Price per unit</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+          <% } %>
+          <% for(let r of result) {%>
+          <tr>
+            <td class="count"></td>
+            <td><%=r.company_name%></td>
+            <td><%=r.med_name%></td>
+            <td><%=r.quantity%></td>
+            <td><%=r.price%></td>
+            <td><%=r.quantity*r.price%></td>
+            <td><button class="delete" onclick="return removeCart('<%=r.med_id%>', '<%=r.quantity%>')"><i
+                  class="fa fa-trash-o w3-large"></i></button></td>
+          </tr>
+          <% }%>
+          <%let sum = 0; %>
+          <% for(let r of result) {%>
+          <% sum += r.quantity*r.price %>
+          <% }%>
+          <% if(result.length>0) { %>
+          <tr>
+            <th colspan="5" class="gt">Grand total:</th>
+            <td><%=sum%></td>
+          </tr>
+          <tr>
+            <th colspan="5" class="gt">Discount:</th>
+            <td><input type="number" class="discount" id="discount" min="0" value="0"
+                onclick="return netAmount('<%=sum%>');" onkeyup="return netAmount('<%=sum%>');"
+                onblur="return isDiscount(document.getElementById('discount'),'<%=results[0].cus_membership_points%>')"
+                onkeypress="return ifDiscount(event,'discount')"></td>
+          </tr>
+          <tr>
+            <th colspan="5" class="gt">Net amount:</th>
+            <td id="net" style="font-weight: bold;"><%=sum%></td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+    <div class="sbutton">
+      <button class="submit"
+        onclick="invoiceGenerate('<%=results[0].cus_id%>','<%=sum%>','<%=result.length%>');">Submit</button>
+    </div>
+  </div>
+
+  <div class="copyright">&copy 2020 PMS <span class="t5">PHARMACY MANAGEMENT SYSTEM</span></div>
+</body>
+
+</html>

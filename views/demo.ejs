@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/demo.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.js"></script>
+  
+    
+</head>
+<body>
+   
+  <div class="sidenav">
+    <h1 class="pms"><i class="fa fa-plus w3-xlarge"></i> PMS</h1>
+    <a class="navlink1" href="http://localhost:3000/"><i class="fa fa-dashboard w3-xlarge" style="color:black;"></i>&nbsp Dashboard</a>
+    <div class="w3-dropdown-hover">
+      <a class="navlink2"><i class="fa fa-plus-square w3-xlarge" style="color:#E43A3A;"></i>&nbsp Medicine</a>
+      <div class="w3-dropdown-content w3-bar-block">
+        <a href="http://localhost:3000/add/medicine" class="w3-bar-item w3-button">Add medicine</a>
+        <a href="http://localhost:3000/manage/medicine" class="w3-bar-item w3-button">Manage medicines</a>
+      </div>
+    </div>
+    <div class="w3-dropdown-hover">
+      <a class="navlink7"><i class="fa fa-handshake-o w3-xlarge" style="color:#FF6D0E;"></i>&nbsp Company</a>
+      <div class="w3-dropdown-content w3-bar-block">
+        <a href="http://localhost:3000/add/company" class="w3-bar-item w3-button">Add company</a>
+        <a href="http://localhost:3000/manage/company" class="w3-bar-item w3-button">Manage company</a>
+      </div>
+    </div>
+
+    <a class="navlink3" href="http://localhost:3000/customers"><i class="fa fa-users w3-xlarge" style="color:#3AB2E4;"></i>&nbsp Customers</a>
+
+    <a class="navlink4" href="http://localhost:3000/cart"><i class="fa fa-shopping-cart w3-xlarge" style="color:black;"></i>&nbsp Cart</a>
+    <a class="navlink5" href="http://localhost:3000/salesreport"><i class="fa fa-bar-chart w3-xlarge" style="color:#239B56;"></i>&nbsp Sales Report</a>
+    <a class="navlink6" href="http://localhost:3000/invoice/search"><i class="fa fa-search w3-xlarge" style="color:#1B18AD;"></i>&nbsp Invoice Search</a>
+  </div>
+
+
+      <div class="main">
+      <div class="top">
+         <h2 class="dash">DASHBOARD</h2>
+         <div class="dropdown">
+          <button class="dropbtn"><i class="fa fa-user-circle w3-xlarge"></i> Pharmacist</button>
+          <div class="dropdown-content">
+            <a href="#">View profile</a>
+            <a href="#">Logout</a>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+</body>
+
+</html> 
