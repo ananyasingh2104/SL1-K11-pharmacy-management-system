@@ -81,6 +81,65 @@ body {
   }
 /*CSS for sidenav ENDS*/
 
+/* Search Region*/
+.middle {
+    margin-top: 4vh;
+  }
+  
+  .heading1 {
+    font-size: 3.5vh;
+    display: flex;
+    color:white;
+    justify-content: center;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  }
+  
+  .sbar {
+    margin-top: 3.75vh;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .msearch {
+    height: 6vh;
+    width: 35vw;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    padding-left: 2.85vw;
+    border: white;
+    outline:none;
+    background:white;
+    border:1.7px solid white;
+    font-size: 2vh;
+  }
+  
+  ::placeholder{
+       color:#667176;
+       font-family: Helvetica,'Arial', sans-serif;
+       font-size: 2.2vh;
+    }
+  
+  .i2 {
+    margin-left: -31.5vw;
+    margin-top: 1.5vh;
+    position: absolute;
+    border: none;
+    color:#A6B0B4;
+    z-index: 1;
+  }
+  
+  .mdetails {
+    height: 55vh;
+    width: 75vw;
+    margin-left: 20vw;
+    margin-top: 5vh;
+    overflow: auto;
+  }
+  table {
+    counter-reset: section;
+  }  
+
 /*Coloured Region*/
 
 .top {
@@ -89,47 +148,14 @@ body {
 
 .main {
     margin-left: 15vw;
-    height: 30vh;
+    height: 33vh;
     background-image: linear-gradient( to bottom right, #0C8C9F 30%, #00D6CA 100%);
-}
-
-.add{
-    height: 70vh;
-    width: 80vw;
-    background-color: white;
-    margin-top: -13vh;
-    margin-left: 17.5vw;
-    border-radius: 7.5px;
-    overflow: auto;
-    padding-bottom: 3.25vh;
-}
-
-.heading1{
-    padding-top: 1.625vh;
-    padding-left: 1.5vw;
-    font-size:2.1vh;
-    color:#4B586B;
-    height: 7vh;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.heading2{
-    padding-top: 0.4vh;
-    padding-bottom:1vh;
-    padding-left: 1.5vw;
-    font-size: 1.6vh;
-    color: #999898 ;
-}
-
-.ctable{
-    padding-top:3vh;
-    padding-left:2vw;
-}
+  }
 
 #companies {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 76vw;
+    width: 75vw;
   }
   
   #companies td, #companies th {

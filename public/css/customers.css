@@ -81,6 +81,84 @@ body {
 }
 /*CSS for sidenav ENDS*/
 
+/*CSS for serach input field*/
+.middle {
+  margin-top: 4vh;
+}
+
+.heading1 {
+  font-size: 3.5vh;
+  display: flex;
+  color:white;
+  justify-content: center;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.sbar {
+  margin-top: 3.75vh;
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.sbar input {
+    height: 6vh;
+    width: 35vw;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    padding-left: 2.85vw;
+    border: white;
+    outline:none;
+    background:white;
+    border:1.7px solid white;
+    font-size: 2vh;
+  }
+
+.sbar i{
+    position:absolute;
+    right:25.7vw;
+    top:1.5vh;
+    font-size:3.0vh;
+    visibility: hidden;
+}
+
+.sbar.error i
+{
+    color: #B0BABA;
+    visibility: visible;
+}
+
+/* .msearch {
+  height: 6vh;
+  width: 35vw;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  padding-left: 2.85vw;
+  border: white;
+  outline:none;
+  background:white;
+  border:1.7px solid white;
+  font-size: 2vh;
+} */
+
+::placeholder{
+     color:#667176;
+     font-family: Helvetica,'Arial', sans-serif;
+     font-size: 2.2vh;
+  }
+
+.i2 {
+  margin-left: -31.5vw;
+  margin-top: 1.5vh;
+  position: absolute;
+  border: none;
+  color:#A6B0B4;
+  z-index: 1;
+}
+/* CSS for search input field ENDS*/
+
 /*Coloured Region*/
 
 .top {
@@ -89,7 +167,7 @@ body {
 
 .main {
   margin-left: 15vw;
-  height: 35vh;
+  height: 33vh;
   background-image: linear-gradient( to bottom right, #0C8C9F 30%, #00D6CA 100%);
 }
 
@@ -98,7 +176,7 @@ body {
 /*Footer Starts*/
 
 .copyright {
-  margin-top: 4.25vh;
+  margin-top: 3vh;
   margin-left: 18vw;
   font-size: 1.0rem;
   color: #5F5F5F;
@@ -112,21 +190,34 @@ body {
   color: #5F5F5F;
 }
 
+.i1 {
+  margin-left: -31.5vw;
+  margin-top: 1.5vh;
+  position: absolute;
+  border: none;
+  color: #A6B0B4;
+  z-index: 1;
+  background:none;
+}
+
+.i1:focus {
+  outline: none;
+}
 /*Footer ENDS*/
 
 /*CSS for Sale Starts*/
 
 
-.end{
+/* .end{
   height: 65vh;
   width:75vw;
   background-color: white;
   margin-left: 19.9vw;
-  margin-top: -13vh;
+  margin-top: 1vh;
   border-radius: 6px;
-}
+} */
 
-.heading1{
+/* .heading1{
   padding-top: 1.625vh;
   padding-left: 1.5vw;
   padding-bottom:1vh;
@@ -134,16 +225,24 @@ body {
   color:#4B586B;
   height: 5.5vh;
   font-family: 'Montserrat', sans-serif;
-}
+} */
 
-.heading2{
+/* .heading2{
   padding-top: 1vh;
   padding-left: 1.5vw;
   font-size: 1.8vh;
   color: #999898 ;
+} */
+
+.mdetails {
+  height: 55vh;
+  width: 75vw;
+  margin-left: 20vw;
+  margin-top: 5vh;
+  overflow: auto;
 }
 
-.customer{
+/* .customer{
   height:60vh;
   background-color: #f1f1f1;
   margin-top: 1vh;
@@ -152,15 +251,12 @@ body {
   padding-top: 2vh;
   overflow:auto;
   padding-bottom: 3.5vh;
-}
+} */
 
 #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 72vw;
-  margin-left: 1.375vw;
-  padding-top: 2vh;
-  margin-top: 2vh;
+  width: 75vw;
 }
 
 #customers td, #customers th {
@@ -168,7 +264,7 @@ body {
   padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #E7E7E7;}
+#customers tr:nth-child(even){background-color: #f2f2f2;}
 
 #customers tr:hover {background-color: #ddd;}
 
@@ -219,11 +315,21 @@ body {
   opacity:1;
 }
 
-.heading2{
+table {
+  counter-reset: section;
+}
+
+.count:before {
+  counter-increment: section;
+  content: counter(section);
+}
+
+
+/* .heading2{
   padding-left: 1.5vw;
   font-size: 1.75vh;
   color: #7D7C7C;
-}
+} */
 
 
 /*COMMON CODE ENDS HERE******************************************/

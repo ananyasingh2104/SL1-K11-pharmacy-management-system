@@ -23,48 +23,59 @@
 
     <div class="sidenav">
         <h1 class="pms"><i class="fa fa-plus w3-xlarge"></i> PMS</h1>
-        <a class="navlink1" href="http://localhost:3000/"><i class="fa fa-dashboard w3-xlarge" style="color:black;"></i>&nbsp Dashboard</a>
+        <a class="navlink1" href="http://localhost:3000/"><i class="fa fa-dashboard w3-xlarge"
+                style="color:black;"></i>&nbsp Dashboard</a>
         <div class="w3-dropdown-hover">
-          <a class="navlink2"><i class="fa fa-plus-square w3-xlarge" style="color:#E43A3A;"></i>&nbsp Medicine</a>
-          <div class="w3-dropdown-content w3-bar-block">
-            <a href="http://localhost:3000/add/medicine" class="w3-bar-item w3-button">Add medicine</a>
-            <a href="http://localhost:3000/manage/medicine" class="w3-bar-item w3-button">Manage medicines</a>
-          </div>
+            <a class="navlink2"><i class="fa fa-plus-square w3-xlarge" style="color:#E43A3A;"></i>&nbsp Medicine</a>
+            <div class="w3-dropdown-content w3-bar-block">
+                <a href="http://localhost:3000/add/medicine" class="w3-bar-item w3-button">Add medicine</a>
+                <a href="http://localhost:3000/manage/medicine" class="w3-bar-item w3-button">Manage medicines</a>
+                <a href="http://localhost:3000/less/stock" class="w3-bar-item w3-button">Less in stock</a>
+            </div>
         </div>
         <div class="w3-dropdown-hover">
-          <a class="navlink7"><i class="fa fa-handshake-o w3-xlarge" style="color:#FF6D0E;"></i>&nbsp Company</a>
-          <div class="w3-dropdown-content w3-bar-block">
-            <a href="http://localhost:3000/add/company" class="w3-bar-item w3-button">Add company</a>
-            <a href="http://localhost:3000/manage/company" class="w3-bar-item w3-button">Manage company</a>
-          </div>
+            <a class="navlink7"><i class="fa fa-handshake-o w3-xlarge" style="color:#FF6D0E;"></i>&nbsp Company</a>
+            <div class="w3-dropdown-content w3-bar-block">
+                <a href="http://localhost:3000/add/company" class="w3-bar-item w3-button">Add company</a>
+                <a href="http://localhost:3000/manage/company" class="w3-bar-item w3-button">Manage company</a>
+            </div>
         </div>
-    
-        <a class="navlink3" href="http://localhost:3000/customers"><i class="fa fa-users w3-xlarge" style="color:#3AB2E4;"></i>&nbsp Customers</a>
-    
-        <a class="navlink4" href="http://localhost:3000/cart"><i class="fa fa-shopping-cart w3-xlarge" style="color:black;"></i>&nbsp Cart</a>
-        <a class="navlink5" href="http://localhost:3000/salesreport/period"><i class="fa fa-bar-chart w3-xlarge" style="color:#239B56;"></i>&nbsp Sales Report</a>
-        <a class="navlink6" href="http://localhost:3000/invoice/search"><i class="fa fa-search w3-xlarge" style="color:#1B18AD;"></i>&nbsp Invoice Search</a>
-      </div>
-    
+
+        <a class="navlink3" href="http://localhost:3000/customers"><i class="fa fa-users w3-xlarge"
+                style="color:#3AB2E4;"></i>&nbsp Customers</a>
+
+        <a class="navlink4" href="http://localhost:3000/cart"><i class="fa fa-shopping-cart w3-xlarge"
+                style="color:black;"></i>&nbsp Cart</a>
+        <a class="navlink5" href="http://localhost:3000/salesreport/period"><i class="fa fa-bar-chart w3-xlarge"
+                style="color:#239B56;"></i>&nbsp Sales Report</a>
+        <a class="navlink6" href="http://localhost:3000/invoice/search"><i class="fa fa-search w3-xlarge"
+                style="color:#1B18AD;"></i>&nbsp Invoice Search</a>
+    </div>
+
 
     <div class="main">
         <div class="top">
             <h2 class="dash">MANAGE COMPANY</h2>
             <div class="logout">
                 <button class="lbtn" onclick="return logout();"><i class="fa fa-sign-out"></i>Logout</button>
-              </div>
+            </div>
+        </div>
+
+        <div class="middle">
+            <div class="heading1">
+                SEARCH COMPANY
+            </div>
+            <div class="sbar">
+                <i class="fa fa-search w3-xlarge i2"></i>
+                <input class="msearch" type="text" placeholder="Enter company name" id="msearch"
+                    onkeyup="searchCompany();">
+            </div>
         </div>
     </div>
 
     <div class="end">
-        <div class="add">
-            <div class="heading1">
-                PHARMACY COMPANY
-            </div>
-            <div class="heading2">
-                MANAGE PHARMACY COMPANY
-             </div>
-            <div class="ctable">
+        <div class="mdetails">
+            <div class="table1">
                 <table id="companies">
                     <tr>
                         <th>S.No</th>
@@ -81,7 +92,8 @@
                         <td><%=r.company_contact%></td>
                         <td><%=r.company_email%></td>
                         <td><%=r.company_address%></td>
-                        <td><button class="ebutton" onclick="return editCompany('<%=r.company_id%>')">Edit details</button></td>
+                        <td><button class="ebutton" onclick="return editCompany('<%=r.company_id%>')">Edit
+                                details</button></td>
                     </tr>
                     <% }%>
                 </table>

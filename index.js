@@ -95,7 +95,7 @@ app.get('/add/medicine', (req, res) => {
     else {
         try {
             const decoded = jwt.verify(ls.get('token'), config.get('jwtPrivateKey'));
-            let sql = `select company_name from pharma_companies where ph_id = ${decoded.id};`
+            let sql = `select company_name from pharma_companies where ph_id = ${decoded.id} order by company_name;`
             con.query(sql, (err, results) => {
                 if (err) throw err;
                 res.render('addmedicine', { results })
@@ -197,7 +197,7 @@ app.get('/customers', (req, res) => {
     else {
         try {
             const decoded = jwt.verify(ls.get('token'), config.get('jwtPrivateKey'));
-            let sql = `select * from customers where ph_id = ${decoded.id};`
+            let sql = `select * from customers where ph_id = ${decoded.id} order by cus_name;`
             con.query(sql, (err, results) => {
                 if (err) throw err;
                 res.render('customers', { results })
@@ -310,6 +310,25 @@ app.get('/invoice/search', (req, res) => {
     }
 })
 
+app.get('/less/stock', (req, res) => {
+    if (!ls.get('token')) {
+        res.render('login')
+    }
+    else {
+        try {
+            const decoded = jwt.verify(ls.get('token'), config.get('jwtPrivateKey'));
+            let sql = `select medicines.med_id, medicines.med_name, medicines.med_quantity, pharma_companies.company_name from medicines join pharma_companies on medicines.company_id = pharma_companies.company_id where medicines.ph_id = ${decoded.id} and medicines.med_quantity<20;`
+            con.query(sql, (err, results) => {
+                if (err) throw err;
+                res.render('lessinstock', { results })
+            })
+        }
+        catch (err) {
+            res.send('Invalid token!');
+        }
+    }
+})
+
 app.get('/login', (req, res) => {
     if (!ls.get('token')) {
         res.render('login')
@@ -332,7 +351,7 @@ app.get('/manage/company', (req, res) => {
     else {
         try {
             const decoded = jwt.verify(ls.get('token'), config.get('jwtPrivateKey'));
-            let sql = `select * from pharma_companies where ph_id = ${decoded.id};`
+            let sql = `select * from pharma_companies where ph_id = ${decoded.id} order by company_name;`
             con.query(sql, (err, results) => {
                 if (err) throw err;
                 res.render('managecompany', { results })
@@ -351,7 +370,7 @@ app.get('/manage/medicine', (req, res) => {
     else {
         try {
             const decoded = jwt.verify(ls.get('token'), config.get('jwtPrivateKey'));
-            let sql = `select medicines.med_id as med_id, medicines.med_name as med_name, medicines.med_quantity as med_quantity, medicines.med_price as med_price, pharma_companies.company_name as company_name from medicines join pharma_companies on medicines.company_id = pharma_companies.company_id and medicines.ph_id = pharma_companies.ph_id and medicines.ph_id = ${decoded.id};`
+            let sql = `select medicines.med_id as med_id, medicines.med_name as med_name, medicines.med_quantity as med_quantity, medicines.med_price as med_price, pharma_companies.company_name as company_name from medicines join pharma_companies on medicines.company_id = pharma_companies.company_id and medicines.ph_id = pharma_companies.ph_id and medicines.ph_id = ${decoded.id} order by medicines.med_name;`
             con.query(sql, (err, results) => {
                 if (err) throw err;
                 res.render('managemedicine', { results })
@@ -363,7 +382,7 @@ app.get('/manage/medicine', (req, res) => {
     }
 })
 
-app.get('/salesreport/:fdate/:tdate', (req, res) => {
+app.get('/salesreport/customers/:fdate/:tdate', (req, res) => {
     if (!ls.get('token')) {
         res.redirect('/login')
     }
@@ -371,14 +390,35 @@ app.get('/salesreport/:fdate/:tdate', (req, res) => {
         try {
             const decoded = jwt.verify(ls.get('token'), config.get('jwtPrivateKey'));
             let { fdate, tdate } = req.params;
-            sql = `select order_details.med_id, sum(qty_sold) as total from orders join order_details on orders.order_id = order_details.order_id where orders.order_date between '${fdate}' and '${tdate}' and orders.ph_id = ${decoded.id} group by order_details.med_id order by order_details.med_id;`
+            let sql = `select orders.order_id, orders.order_date, orders.amount_paid, customers.cus_name from orders join customers where orders.cus_id = customers.cus_id and orders.ph_id = ${decoded.id} order by orders.order_date;`
+            con.query(sql, (err, results) => {
+                if (err) throw err;
+                res.render('salesreportcustomers', { results, fdate, tdate })
+            })
+
+        }
+        catch (err) {
+            res.send('Invalid token!');
+        }
+    }
+})
+
+app.get('/salesreport/medicines/:fdate/:tdate', (req, res) => {
+    if (!ls.get('token')) {
+        res.redirect('/login')
+    }
+    else {
+        try {
+            const decoded = jwt.verify(ls.get('token'), config.get('jwtPrivateKey'));
+            let { fdate, tdate } = req.params;
+            let sql = `select order_details.med_id, sum(qty_sold) as total from orders join order_details on orders.order_id = order_details.order_id where orders.order_date between '${fdate}' and '${tdate}' and orders.ph_id = ${decoded.id} group by order_details.med_id order by order_details.med_id;`
             con.query(sql, (err, results) => {
                 if (err) throw err;
                 let result1 = results;
                 let sql = `select medicines.med_id, medicines.med_name, pharma_companies.company_name from medicines join pharma_companies on medicines.company_id = pharma_companies.company_id and medicines.ph_id = pharma_companies.ph_id and medicines.ph_id = ${decoded.id};`
                 con.query(sql, (err, results) => {
                     if (err) throw err;
-                    res.render('salesreport', { result1, results, fdate, tdate });
+                    res.render('salesreportmedicines', { result1, results, fdate, tdate });
                 })
             })
         }
@@ -401,6 +441,11 @@ app.get('/salesreport/period', (req, res) => {
             res.send('Invalid token!');
         }
     }
+})
+
+app.get('/signup', (req, res) => {
+    ls.clear();
+    res.render('signup');
 })
 
 app.get('/update/company/:cid', (req, res) => {
@@ -673,11 +718,11 @@ app.post('/invoice/data/:inumber', (req, res) => {
 
 app.post('/login', (req, res) => {
     let { username, password } = req.body;
-    let sql = `select ph_id, ph_username, ph_password from pharmacies where ph_username like '${username}' and ph_password like '${password}';`
+    let sql = `select ph_id, ph_name, ph_username, ph_password from pharmacies where ph_username like '${username}' and ph_password like '${password}';`
     con.query(sql, (err, results) => {
         if (err) throw err;
         if (results[0] != null) {
-            const token = jwt.sign({ id: results[0].ph_id }, config.get('jwtPrivateKey'));
+            const token = jwt.sign({ id: results[0].ph_id, name: results[0].ph_name }, config.get('jwtPrivateKey'));
             ls.set('token', token);
             let decoded = jwt.decode(ls.get('token'));
             let sql = `create or replace view cart_details as select pharma_companies.company_name as company_name, cart.med_id as med_id, cart.quantity as quantity, medicines.med_name as med_name, medicines.med_price as price from ((cart join medicines on cart.med_id = medicines.med_id and cart.ph_id = medicines.ph_id and cart.ph_id = ${decoded.id}) join pharma_companies on medicines.company_id = pharma_companies.company_id and medicines.ph_id = pharma_companies.ph_id and medicines.ph_id = ${decoded.id});`
@@ -756,6 +801,29 @@ app.post('/salesreport/period', (req, res) => {
     catch (err) {
         res.send('Invalid token!');
     }
+})
+
+app.post('/signup', (req, res) => {
+    let { name, contact, email, address, username, password } = req.body;
+    let sql = `select ph_email from pharmacies where ph_email like '${email}';`
+    con.query(sql, (err, results) => {
+        if (err) throw err;
+        if (results[0] == null) {
+            let sql = `insert into pharmacies(ph_name, ph_contact, ph_email, ph_address, ph_username, ph_password) values('${name}', '${contact}', '${email}', '${address}', '${username}', '${password}');`
+            con.query(sql, (err, results) => {
+                if (err) throw err;
+                let sql = `select ph_id, ph_name from pharmacies where ph_id = (select max(ph_id) from pharmacies);`
+                con.query(sql, (err, results) => {
+                    if (err) throw err;
+                    const token = jwt.sign({ id: results[0].ph_id, name: results[0].ph_name }, config.get('jwtPrivateKey'));
+                    ls.set('token', token);
+                    return res.send({ success: true });
+                })
+            })
+        }
+        else return res.send({ success: false });
+    })
+
 })
 
 app.post('/update/company/:cid', (req, res) => {

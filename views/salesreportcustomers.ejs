@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/salesreport.css">
+    <link rel="stylesheet" href="/css/salesreportcustomers.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.js"></script>
-    <script src="/js/salesreport.js"></script>
+    <script src="/js/salesreportcustomers.js"></script>
     
 </head>
 <body>
@@ -28,6 +28,7 @@
       <div class="w3-dropdown-content w3-bar-block">
         <a href="http://localhost:3000/add/medicine" class="w3-bar-item w3-button">Add medicine</a>
         <a href="http://localhost:3000/manage/medicine" class="w3-bar-item w3-button">Manage medicines</a>
+        <a href="http://localhost:3000/less/stock" class="w3-bar-item w3-button">Less in stock</a>
       </div>
     </div>
     <div class="w3-dropdown-hover">
@@ -56,7 +57,7 @@
 
       <div class="end">
           <div class="heading1">
-              REPORT
+              CUSTOMERS REPORT
           </div>
 
           <div class="report">
@@ -67,22 +68,22 @@
                 <table id="sales">
                     <tr>
                       <th>S.No</th>
-                      <th>Company name</th>
-                      <th>Medicine name</th>
-                      <th>Quantity sold</th>
+                      <th>Invoice number</th>
+                      <th>Customer name</th>
+                      <th>Order date</th>
+                      <th>Amount paid</th>
+                      <th>Action</th>
                     </tr>
-                    <% for(let r1 of result1) { %> 
-                    <% for(let r2 of results) { %>
-                    <% if(r1.med_id==r2.med_id) { %> 
+                    <% for(let r of results) { %>
                     <tr>
                       <td class="count"></td>
-                      <td><%=r2.company_name%></td>
-                      <td><%=r2.med_name%></td>
-                      <td><%=r1.total%></td>
+                      <td><%=r.order_id%></td>
+                      <td><%=r.cus_name%></td>
+                      <td><%=r.order_date%></td>
+                      <td><%=r.amount_paid%></td>
+                      <td><button class="vorders" onclick="return viewDetails('<%=r.order_id%>');">View details</button></td>
                     </tr>
-                  <% } %>
-                  <% } %>
-                  <% } %>   
+                <% } %> 
                   </table>
               </div>
           </div>

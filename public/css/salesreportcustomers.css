@@ -1,0 +1,220 @@
+/* CODE COMMON FOR ALL PAGES STARTS HERE*************************/
+
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: #F9F9F9;
+  }
+  
+  /*CSS for Sidenav*/
+  
+  .sidenav {
+    height: 100vh;
+    width: 15vw;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    position: fixed;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 4vh;
+  }
+  
+  .sidenav a {
+    padding: 2vh 2vw 2vh 2vw;
+    text-decoration: none;
+    font-size: 16px;
+    color: #5F5F5F;
+    display: block;
+    font-family: 'Karla', sans-serif;
+    border-left: 5px solid transparent;
+  }
+  
+  .sidenav a:hover {
+    color: #BDC3C7;
+    border-left-color: #00D6CA;
+  }
+  
+  .pms {
+    color: red;
+    text-align: center;
+    padding-top: 0.5vh;
+    padding-bottom: 10vh;
+    font-size: 19px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .w3-bar-block {
+    margin-left: 2vw;
+  }
+  
+  .dash {
+    display: inline-block;
+    padding-left: 1vw;
+    padding-top: 1vh;
+    color: white;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  .lbtn {
+    background: none;
+    padding: 1vh 1vw 1vh 1vw;
+    font-size: 2.7vh;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .lbtn:focus{
+    outline: none;
+  }
+  
+  .lbtn:hover{
+    color: black;
+  }
+  
+  .logout {
+    position: fixed;
+    display: inline-block;
+    padding-left: 65.5vw;
+  }
+  
+  /*CSS for sidenav ENDS*/
+  
+  /*Coloured Region*/
+  
+  .top {
+    padding: 2vh 0vw 0vh 2vw;
+  }
+  
+  .main {
+    margin-left: 15vw;
+    height: 35vh;
+    background-image: linear-gradient( to bottom right, #0C8C9F 30%, #00D6CA 100%);
+  }
+  
+  /*Coloured Region Ends*/
+  
+  /*Footer Starts*/
+  
+  .copyright {
+    margin-top: 5vh;
+    margin-left: 18vw;
+    font-size: 1.0rem;
+    color: #5F5F5F;
+  }
+  
+  .t5 {
+    position: fixed;
+    margin-left: 59.5vw;
+    font-size: 16px;
+    display: inline;
+    color: #5F5F5F;
+  }
+  
+  /*Footer ENDS*/
+  
+  /*CSS for Sale Starts*/
+  
+  .end{
+    height: 65vh;
+    width: 75vw;
+    background-color: white;
+    margin-left: 20vw;
+    margin-top: -13vh;
+    border-radius: 6px;
+  }
+  
+   .heading1{
+    padding-top: 1.625vh;
+    padding-left: 1.5vw;
+    padding-bottom:0.5vh;
+    font-size:2.3vh;
+    color:#4B586B;
+    height: 6vh;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .heading2{
+    padding-top: 2.5vh;
+    padding-left: 2vw;
+    font-size: 1.8vh;
+    color: #999898;
+  }
+  ::placeholder{
+     color:#667176;
+     font-family: 'Helvetica','Arial', sans-serif;
+     font-size: 1.8vh;
+  }
+  
+   .report{
+     background-color: #F1F1F1;
+     height: 60vh;
+     margin-top: 1vh;
+     overflow:auto;
+     border-bottom-left-radius: 6px;
+     border-bottom-right-radius: 6px;
+   }
+  
+   .table{
+     padding-bottom: 2vh;
+   }
+  
+   #sales{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70vw;
+    margin-left: 2.25vw;
+    margin-top: 2vh;
+  }
+  
+  #sales td, #sales th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #sales tr:nth-child(even){background-color: #E7E7E7;}
+  
+  #sales tr:hover {background-color: #ddd;}
+  
+  #sales th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#0C8C9F;
+    opacity:0.75;
+    color: white;
+  }
+  
+  table {
+    counter-reset: section;
+  }
+  
+  .count:before {
+    counter-increment: section;
+    content: counter(section);
+  }
+
+  .vorders{
+    /*background-color: lightsteelblue;
+    border-color: lightsteelblue;*/
+    border-color:transparent;
+    background-color: #52606E;
+    opacity:0.72;
+    color:white;
+    border-radius: 4px;
+    /*text-decoration: underline;*/
+  }
+  
+  .vorders:hover{
+    opacity:1;
+  }
+  
+  .vorders:focus{
+    outline: none;
+    opacity:1;
+  }
+  
+  
+  /*COMMON CODE ENDS HERE******************************************/

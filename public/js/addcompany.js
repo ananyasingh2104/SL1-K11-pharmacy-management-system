@@ -1,16 +1,16 @@
-function logout(){
+function logout() {
     fetch("/logout", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         }
     }).then(res => res.json())
-    .then(res => {
-        if (res.success === true) {
-            window.location.href=`http://localhost:3000/login`;    
-         }
-    })
-    .catch((err) => console.log(err))
+        .then(res => {
+            if (res.success === true) {
+                window.location.href = `http://localhost:3000/login`;
+            }
+        })
+        .catch((err) => console.log(err))
 }
 
 let val_data = [];
@@ -23,7 +23,7 @@ function isCompany(input) {
     if (input.length >= 2 && input.length <= 50 && input.match(companyName)) {
         setSuccessMsg(cname);
         val_data[0] = 1;
-        return True;
+        return true;
     }
     else {
         setErrorMsg(cname);
@@ -118,17 +118,11 @@ function addCompany() {
         setErrorMsg(cname);
         flag = 0;
     }
-    else {
-        setSuccessMsg(cname);
-    }
 
     var contactval = cnumber.value;
     if (contactval == "") {
         setErrorMsg(cnumber);
         flag = 0;
-    }
-    else {
-        setSuccessMsg(cnumber);
     }
 
     if (flag == 0) {

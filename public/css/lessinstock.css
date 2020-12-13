@@ -77,7 +77,7 @@ body {
 .logout {
   position: fixed;
   display: inline-block;
-  padding-left: 69.5vw;
+  padding-left: 65.5vw;
 }
 
 /*CSS for sidenav ENDS*/
@@ -90,7 +90,7 @@ body {
 
 .main {
   margin-left: 15vw;
-  height: 33vh;
+  height: 35vh;
   background-image: linear-gradient( to bottom right, #0C8C9F 30%, #00D6CA 100%);
 }
 
@@ -99,7 +99,7 @@ body {
 /*Footer Starts*/
 
 .copyright {
-  margin-top: -2vh;
+  margin-top: 5vh;
   margin-left: 18vw;
   font-size: 1.0rem;
   color: #5F5F5F;
@@ -117,128 +117,74 @@ body {
 
 /*CSS for Sale Starts*/
 
-.middle {
-  margin-top: 4vh;
-}
-
-.heading1 {
-    font-size: 3.5vh;
-    display: flex;
-    color:white;
-    justify-content: center;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-  }
-
-.sbar {
-  margin-top: 3.75vh;
-  display: flex;
-  position: relative;
-  justify-content: center;
-}
-
-.sbar input {
-    height: 6vh;
-    width: 35vw;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-    padding-left: 2.85vw;
-    border: white;
-    outline:none;
-    background:white;
-    border:1.7px solid white;
-    font-size: 2vh;
-  }
-
-.sbar i{
-    position:absolute;
-    right:25.7vw;
-    top:1.5vh;
-    font-size:3.0vh;
-    visibility: hidden;
-}
-
-.sbar.error i
-{
-	color: #B0BABA;
-	visibility: visible;
-}
-
-.i1 {
-    margin-left: -31.5vw;
-    margin-top: 1.5vh;
-    position: absolute;
-    border: none;
-    color:#A6B0B4;
-    z-index: 1;
-    background:none;
-  }
-
-  .i1:focus{
-    outline: none;
-  }
-
-::placeholder{
-     color:#667176;
-     font-family: Helvetica,'Arial', sans-serif;
-     font-size: 2.2vh;
-}
-
-.mdetails {
+.end{
+  height: 65vh;
   width: 75vw;
+  background-color: white;
   margin-left: 20vw;
-  margin-top: 5vh;
-  overflow: auto;
+  margin-top: -13vh;
+  border-radius: 6px;
 }
 
-#medicines {
+ .heading1{
+  padding-top: 1.625vh;
+  padding-left: 1.5vw;
+  padding-bottom:0.5vh;
+  font-size:2.3vh;
+  color:#4B586B;
+  height: 6vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.heading2{
+  padding-top: 2.5vh;
+  padding-left: 2vw;
+  font-size: 1.8vh;
+  color: #999898;
+}
+::placeholder{
+   color:#667176;
+   font-family: 'Helvetica','Arial', sans-serif;
+   font-size: 1.8vh;
+}
+
+ .report{
+   background-color: #F1F1F1;
+   height: 60vh;
+   margin-top: 1vh;
+   overflow:auto;
+   border-bottom-left-radius: 6px;
+   border-bottom-right-radius: 6px;
+ }
+
+ .table{
+   padding-bottom: 2vh;
+ }
+
+ #sales{
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 74.5vw;
+  width: 70vw;
+  margin-left: 2.25vw;
+  margin-top: 2vh;
 }
 
-#medicines td, #medicines th {
+#sales td, #sales th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#medicines tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
+#sales tr:nth-child(even){background-color: #E7E7E7;}
 
-#medicines tr:hover {
-  background-color: #ddd;
-}
+#sales tr:hover {background-color: #ddd;}
 
-#medicines th {
+#sales th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   background-color:#0C8C9F;
   opacity:0.75;
   color: white;
-}
-
-.delete{
-  color: #D51111;
-  border-radius: 4px;
-  border-color: transparent;
-  background-color: transparent;
-}
-.delete:hover{
-  transform: scale(1.3);
-}
-.delete:focus {
-  outline: none;
-  transform: scale(1.3);
-  color:black;
-}
-
-.gt{
-  text-align: center !important;
-  background-image: none !important;
-  color: black !important;
-  background-color: transparent !important;
 }
 
 table {
@@ -250,11 +196,30 @@ table {
   content: counter(section);
 }
 
-@media(max-height:790px){
-  .i1{
-    margin-top: 1vh;
-  }
+.pbutton{
+  margin-left: 37vw;
 }
 
+.pbutton:focus{
+  outline: none;
+}
+
+.ebutton {
+  border-color:transparent;
+  background-color:transparent;
+  color: #1B87FC;
+  border-radius: 5px;
+}
+.ebutton:hover {
+  outline: none;
+  color:#52606E;
+  background-color: transparent;
+}
+
+.ebutton:focus {
+  outline: none;
+  color:black;
+  background-color: transparent;
+}
 
 /*COMMON CODE ENDS HERE******************************************/

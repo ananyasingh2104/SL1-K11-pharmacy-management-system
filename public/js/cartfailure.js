@@ -166,17 +166,11 @@ function addCustomer() {
         setErrorMsg(cname);
         flag = 0;
     }
-    else {
-        setSuccessMsg(cname);
-    }
 
     var contactval = ccontact.value;
     if (contactval == "") {
         setErrorMsg(ccontact);
         flag = 0;
-    }
-    else {
-        setSuccessMsg(ccontact);
     }
 
     if (!isOneChecked()) {

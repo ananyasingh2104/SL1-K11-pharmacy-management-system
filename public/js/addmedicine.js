@@ -159,28 +159,19 @@ function addMedicine() {
         setErrorMsg(mname);
         flag = 0;
     }
-    else {
-        setSuccessMsg(mname);
-    }
-
+    
     var quantityval = quantity.value;
     if (quantityval == "") {
         setErrorMsg(quantity);
         flag = 0;
     }
-    else {
-        setSuccessMsg(quantity);
-    }
-
+   
     var priceval = price.value;
     if (priceval == "") {
         setErrorMsg(price);
         flag = 0;
     }
-    else {
-        setSuccessMsg(price);
-    }
-
+   
     if (flag == 0) {
         alert("Please fill all the required fields!");
         return false;

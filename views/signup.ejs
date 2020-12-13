@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/signup.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sign Up</title>
+</head>
+
+<body>
+  <div class="box">
+    <div class="im">
+      <div class="g"></div>
+      <!-- <img class="g" style="height: 100%;width: 100%;" src="image/bg.jpeg" /> -->
+      <div class="text-block">
+        <h2 class="first">PHARMACY MANAGEMENT SYSTEM</h2>&nbsp
+        <p class="second">Welcome to our Pharmacy</p>
+        <p class="third">Where good health begins</p>
+      </div>
+    </div>
+    <div class="right">
+      <div class="login-content">
+        <form action="index.html">
+          <h2 class="title">Welcome to PMS</h2>
+          <h3> Lets get you all set up to manage your pharmacy!</h3>
+          <div class="signup">
+            <label for="name">Pharmacy Name <div class="required">*</div></label>
+            <input type="text" id="name" name="name" placeholder="Enter pharmacy name" class="input1" autocomplete="OFF"
+              onblur="return isCustomer(document.getElementById('name').value)">
+          </div>
+
+          <div class="row">
+            <div class="signup1">
+              <label for="contact">Contact Number <div class="required">*</div></label>
+              <input type="text" id="contact" name="contact" placeholder="Enter contact number" class="input1"
+                autocomplete="OFF" onblur="return isLength(10,document.getElementById('contact'),'contact')"
+                onkeypress="return isContact(event,'contact')" maxlength="10">
+            </div>
+
+            <div class="signup1">
+              <label for="email">Email ID</label>
+              <input type="text" id="email" name="email" placeholder="Enter email address" class="input1"
+                autocomplete="OFF" onblur="return isemail(document.getElementById('email').value)">
+            </div>
+          </div>
+
+          <div class="signup2">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter address" class="input1" autocomplete="OFF"
+              onblur="return isAddress(document.getElementById('address').value)" maxlength="100">
+          </div>
+
+          <div class="signup2">
+            <label for="username">Username <div class="required">*</div></label>
+            <input type="text" id="username" name="username"
+              placeholder="Enter username ( Character set allowed: alphanumeric, dot and underscore)" class="input1"
+              autocomplete="OFF" onblur="return isUsername(document.getElementById('username').value)" maxlength="20">
+          </div>
+
+          <div class="row">
+            <div class="signup1">
+              <label for="password">Password <div class="required">*</div></label>
+              <input type="password" id="password" name="password" placeholder="Enter password" class="input1"
+                autocomplete="OFF" onblur="return isPassword(document.getElementById('password').value)"
+                onfocus="return passwordVal()">
+              <i class="far fa-eye" id="togglePassword"></i>
+            </div>
+
+            <div class="signup1">
+              <label for="confirm">Confirm Password <div class="required">*</div></label>
+              <input type="password" id="confirm" name="confirm" placeholder="Re-enter Password" class="input1"
+                autocomplete="OFF" onblur="return matchPassword(document.getElementById('confirm').value)">
+            </div>
+            <small id="show">>>Password can have 8-16 characters.<br>>>Password must contain an uppercase, lowercase and
+              a
+              special character.</small>
+          </div>
+
+          <input type="submit" class="btn" value="Signup" onclick="return addPharmacy();">
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/signup.js"></script>
+</body>
+
+</html>

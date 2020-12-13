@@ -1,16 +1,16 @@
-function logout(){
+function logout() {
     fetch("/logout", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         }
     }).then(res => res.json())
-    .then(res => {
-        if (res.success === true) {
-            window.location.href=`http://localhost:3000/login`;    
-         }
-    })
-    .catch((err) => console.log(err))
+        .then(res => {
+            if (res.success === true) {
+                window.location.href = `http://localhost:3000/login`;
+            }
+        })
+        .catch((err) => console.log(err))
 }
 
 let val_data = [];
@@ -71,7 +71,7 @@ function setErrorMsg(input) {
     formControl.className = "prescribed space error";
 }
 
-// Validation for GENDER------------------------------------------------
+// Validation for Mode of mode Of Payment------------------------------------------------
 function isOneChecked() {
 
     var chec = document.getElementsByTagName('input');
@@ -102,7 +102,7 @@ function ifDiscount(evt, input) {
 
 function isDiscount(input, member) {
     input.value = parseInt(input.value, 10);
-    if(input.value>member){
+    if (input.value > member) {
         mem_data = 0;
         return false;
     }
@@ -189,7 +189,7 @@ function invoiceGenerate(value1, value2, len) {
         setErrorMsg(prescribedby);
         flag = 0;
     }
-    
+
     if (!isOneChecked()) {
         flag = 0;
     }
@@ -209,7 +209,7 @@ function invoiceGenerate(value1, value2, len) {
         return false;
     }
 
-    if(mem_data == 0){
+    if (mem_data == 0) {
         alert('Discount cannot be greater than membership points!');
         return false;
     }
