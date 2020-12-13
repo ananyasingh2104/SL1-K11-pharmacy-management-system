@@ -9,9 +9,7 @@
 #### 3) Run npm install to download all the dependencies.
 #### 4) Open mysql and create new database named pharmacy_management_system.
 #### 5) Open index.js file and enter your database password.
-#### 6) Run node index.js on your terminal to create tables.
-#### 7) Open mysql again and in pharmacy_management_system database, run source insert_pharmacies.sql to insert data into pharmacies.
-#### 8) Run node index.js again.
-#### 9) Open localhost:3000 in your browser and continue to the dashboard by entering any username and password stored in pharmacies table. 
+#### 6) Run node index.js on your terminal to create tables. 
+#### 7) Open localhost:3000/signup in your browser to start working with project. 
 
 #### Note : Install node on your pc before all these steps.
