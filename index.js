@@ -5,6 +5,7 @@ const path = require('path');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const ls = require('local-storage');
+const bcrypt = require('bcrypt');
 const { nextTick } = require('process');
 
 if (!config.get('jwtPrivateKey')) {
@@ -23,7 +24,7 @@ app.set('views', path.join(__dirname, 'views'))
 const con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'Avail08#09',
     database: 'pharmacy_management_system'
 });
 
@@ -33,7 +34,7 @@ con.connect(function (err) {
 });
 
 function createTables() {
-    let sql = "create table if not exists pharmacies(ph_id int AUTO_INCREMENT PRIMARY KEY, ph_name varchar(50) NOT NULL, ph_contact varchar(10) NOT NULL, ph_email varchar(100) UNIQUE, ph_address varchar(100), ph_username varchar(16) NOT NULL UNIQUE, ph_password varchar(16) NOT NULL);"
+    let sql = "create table if not exists pharmacies(ph_id int AUTO_INCREMENT PRIMARY KEY, ph_name varchar(50) NOT NULL, ph_contact varchar(10) NOT NULL, ph_email varchar(100) UNIQUE, ph_address varchar(100), ph_username varchar(16) NOT NULL UNIQUE, ph_password varchar(100) NOT NULL);"
     con.query(sql, function (err, results, fields) {
         if (err) throw err;
     })
@@ -718,18 +719,22 @@ app.post('/invoice/data/:inumber', (req, res) => {
 
 app.post('/login', (req, res) => {
     let { username, password } = req.body;
-    let sql = `select ph_id, ph_name, ph_username, ph_password from pharmacies where ph_username like '${username}' and ph_password like '${password}';`
+    let sql = `select ph_id, ph_name, ph_username, ph_password from pharmacies where ph_username like '${username}';`
     con.query(sql, (err, results) => {
         if (err) throw err;
         if (results[0] != null) {
-            const token = jwt.sign({ id: results[0].ph_id, name: results[0].ph_name }, config.get('jwtPrivateKey'));
-            ls.set('token', token);
-            let decoded = jwt.decode(ls.get('token'));
-            let sql = `create or replace view cart_details as select pharma_companies.company_name as company_name, cart.med_id as med_id, cart.quantity as quantity, medicines.med_name as med_name, medicines.med_price as price from ((cart join medicines on cart.med_id = medicines.med_id and cart.ph_id = medicines.ph_id and cart.ph_id = ${decoded.id}) join pharma_companies on medicines.company_id = pharma_companies.company_id and medicines.ph_id = pharma_companies.ph_id and medicines.ph_id = ${decoded.id});`
-            con.query(sql, (err, results) => {
-                if (err) throw err;
-                return res.send({ success: true });
-            })
+            const isValid = bcrypt.compareSync(password, results[0].ph_password);
+            if (isValid) {
+                const token = jwt.sign({ id: results[0].ph_id, name: results[0].ph_name }, config.get('jwtPrivateKey'));
+                ls.set('token', token);
+                let decoded = jwt.decode(ls.get('token'));
+                let sql = `create or replace view cart_details as select pharma_companies.company_name as company_name, cart.med_id as med_id, cart.quantity as quantity, medicines.med_name as med_name, medicines.med_price as price from ((cart join medicines on cart.med_id = medicines.med_id and cart.ph_id = medicines.ph_id and cart.ph_id = ${decoded.id}) join pharma_companies on medicines.company_id = pharma_companies.company_id and medicines.ph_id = pharma_companies.ph_id and medicines.ph_id = ${decoded.id});`
+                con.query(sql, (err, results) => {
+                    if (err) throw err;
+                    return res.send({ success: true });
+                })
+            }
+            else return res.send({ success: false });
         }
         else return res.send({ success: false });
     })
@@ -809,7 +814,21 @@ app.post('/signup', (req, res) => {
     con.query(sql, (err, results) => {
         if (err) throw err;
         if (results[0] == null) {
-            let sql = `insert into pharmacies(ph_name, ph_contact, ph_email, ph_address, ph_username, ph_password) values('${name}', '${contact}', '${email}', '${address}', '${username}', '${password}');`
+            const salt = bcrypt.genSaltSync(12);
+            const hashed = bcrypt.hashSync(password, salt);
+            let sql;
+            if (email == 'NULL' && address == 'NULL') {
+                sql = `insert into pharmacies(ph_name, ph_contact, ph_username, ph_password) values('${name}', '${contact}', '${username}', '${hashed}');`
+            }
+            else if(email == 'NULL'){
+                sql = `insert into pharmacies(ph_name, ph_contact, ph_address, ph_username, ph_password) values('${name}', '${contact}', '${address}', '${username}', '${hashed}');`
+            }
+            else if(address == 'NULL'){
+                sql = `insert into pharmacies(ph_name, ph_contact, ph_email, ph_username, ph_password) values('${name}', '${contact}', '${emails}', '${username}', '${hashed}');`
+            }
+            else {
+                sql = `insert into pharmacies(ph_name, ph_contact, ph_email, ph_address, ph_username, ph_password) values('${name}', '${contact}', '${email}', '${address}', '${username}', '${hashed}');`
+            }
             con.query(sql, (err, results) => {
                 if (err) throw err;
                 let sql = `select ph_id, ph_name from pharmacies where ph_id = (select max(ph_id) from pharmacies);`

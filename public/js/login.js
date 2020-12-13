@@ -18,7 +18,7 @@ inputs.forEach(input => {
 });
 
 function login(){
-	let username = document.getElementById("username").value;
+	let username = document.getElementById("username").value
 	let password = document.getElementById("password").value;
 
 	let row = { username, password };

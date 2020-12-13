@@ -238,8 +238,8 @@ function addPharmacy() {
         let contact = document.getElementById("contact").value;
         let email = (document.getElementById("email").value).toUpperCase();
         let address = (document.getElementById("address").value).toUpperCase();
-        let username = (document.getElementById("username").value).toUpperCase();
-        let password = (document.getElementById("password").value).toUpperCase();
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
 
         let row = { name, contact, email, address, username, password };
 
