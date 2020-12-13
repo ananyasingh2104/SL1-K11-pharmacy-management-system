@@ -256,7 +256,7 @@ function addPharmacy() {
                     window.location.href = `http://localhost:3000/`;
                 }
                 else {
-                    alert("Email already exists!")
+                    alert("Email or username already exists!")
                     location.reload()
                 }
             })

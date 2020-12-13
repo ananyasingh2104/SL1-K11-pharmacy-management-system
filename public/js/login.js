@@ -32,7 +32,12 @@ function login(){
     }).then((res) => res.json())
     .then(res => {
         if(res.success === true) {
-            window.location.href=`http://localhost:3000/`;
+            fetch("/", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
         }
         else {
             alert("Invalid username or password!")
