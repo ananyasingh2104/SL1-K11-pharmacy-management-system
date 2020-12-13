@@ -824,7 +824,7 @@ app.post('/signup', (req, res) => {
                 sql = `insert into pharmacies(ph_name, ph_contact, ph_address, ph_username, ph_password) values('${name}', '${contact}', '${address}', '${username}', '${hashed}');`
             }
             else if(address == 'NULL'){
-                sql = `insert into pharmacies(ph_name, ph_contact, ph_email, ph_username, ph_password) values('${name}', '${contact}', '${emails}', '${username}', '${hashed}');`
+                sql = `insert into pharmacies(ph_name, ph_contact, ph_email, ph_username, ph_password) values('${name}', '${contact}', '${email}', '${username}', '${hashed}');`
             }
             else {
                 sql = `insert into pharmacies(ph_name, ph_contact, ph_email, ph_address, ph_username, ph_password) values('${name}', '${contact}', '${email}', '${address}', '${username}', '${hashed}');`
