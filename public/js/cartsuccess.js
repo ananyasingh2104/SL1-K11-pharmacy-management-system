@@ -124,9 +124,11 @@ function removeCart(value1, value2) {
         .then(res => {
             if (res.success === true) {
                 alert("Medicine removed from cart!")
+                location.reload();
             }
             else {
                 alert("Error!")
+                loccation.reload();
             }
         })
         .catch((err) => console.log(err))

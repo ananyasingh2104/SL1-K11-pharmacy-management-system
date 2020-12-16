@@ -53,6 +53,7 @@ function addToCart(value1, value2) {
 
   if (!Number.isInteger(bquantity) || bquantity === 0) {
     alert('Please enter correct quantity value!');
+    location.reload();
     return false;
   };
 
@@ -71,7 +72,7 @@ function addToCart(value1, value2) {
         location.reload();
       }
       else {
-        alert("Error!")
+        alert("Please enter correct quantity value!")
         location.reload();
       }
     })

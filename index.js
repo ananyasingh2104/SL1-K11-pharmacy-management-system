@@ -781,6 +781,7 @@ app.post('/manage/medicine', (req, res) => {
                 })
 
             }
+            else return res.send({ success: false });
         })
     }
     catch (err) {
