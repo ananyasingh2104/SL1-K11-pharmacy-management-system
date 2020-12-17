@@ -813,8 +813,8 @@ app.post('/signup', (req, res) => {
     let { name, contact, email, address, username, password } = req.body;
     let sql = `select ph_username from pharmacies where ph_username like '${username}';`
     con.query(sql, (err, results) => {
-        if(err) throw err;
-        if(results[0] == null){
+        if (err) throw err;
+        if (results[0] == null) {
             let sql = `select ph_email from pharmacies where ph_email like '${email}';`
             con.query(sql, (err, results) => {
                 if (err) throw err;
